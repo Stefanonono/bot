@@ -52,7 +52,7 @@ async def echo(*, content:str):
 
 @bot.command()
 async def source():
-	embedGithub = discord.Embed(title="Github source code", url="https://github.com/jstri/JHbot")
+	embedGithub = discord.Embed(title="Github source code", url="https://github.com/jstri/bot")
 	await bot.say(embed=embedGithub)
 
 @bot.command()
@@ -147,7 +147,7 @@ async def dab(ctx):
 @bot.command()
 async def listnya():
 	message = ""
-	listdir = os.listdir("../JHbot/media/nya/")
+	listdir = os.listdir("media/nya")
 	for i in listdir:
 		message += i
 		message += ", "
@@ -156,8 +156,8 @@ async def listnya():
 @bot.command(pass_context=True)
 async def nya(ctx):
 	channel = ctx.message.channel
-	file = random.choice(os.listdir("../JHbot/media/nya"))
-	await bot.send_file(channel, "../JHbot/media/nya/" + file)
+	file = random.choice(os.listdir("media/nya"))
+	await bot.send_file(channel, "media/nya/" + file)
 
 
 
