@@ -239,7 +239,7 @@ async def on_member_remove(member):
 
 @bot.event
 async def on_reaction_add(reaction, user):
-	if reaction.emoji == "📌" and reaction.count == 4:
+	if reaction.emoji == "📌" and reaction.count == 5:
 		pinEmbed = discord.Embed(description=reaction.message.content)
 		pinEmbed.set_author(name=str(reaction.message.author), icon_url=reaction.message.author.avatar_url)
 		pinEmbed.set_footer(text="In #" + str(reaction.message.channel))
