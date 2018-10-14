@@ -216,16 +216,13 @@ async def leave(ctx):
 
 # Events
 @bot.event
-async def on_message(message):
-	if "NYA" in message.content.upper():
-		await bot.add_reaction(message, "😹")
-	await bot.process_commands(message)
-
-@bot.event
-async def on_message(message):
+async def on_message(msg):
+	if msg.content != "!nya":
+		if "NYA" in msg.content.upper():
+			await bot.add_reaction(msg, "😹")
 	if random.random() < 0.0002:
-		await bot.send_file(message.author, "media/snas2.png")
-	await bot.process_commands(message)
+		await bot.send_file(msg.author, "media/snas2.png")
+	await bot.process_commands(msg)
 
 @bot.event
 async def on_member_join(member):
