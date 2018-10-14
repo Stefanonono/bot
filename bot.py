@@ -222,6 +222,11 @@ async def on_message(msg):
 	await bot.process_commands(msg)
 
 @bot.event
+async def on_message(message):
+	if random.random() < 0.0002:
+		await bot.send_file(message.author, "media/snas2.png")
+
+@bot.event
 async def on_member_join(member):
 	embedJoin = discord.Embed(colour=0xFFFFFF)
 	embedJoin.add_field(name="User Joined:", value=str(member))
