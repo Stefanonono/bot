@@ -217,8 +217,11 @@ async def leave(ctx):
 # Events
 @bot.event
 async def on_message(msg):
-	if "NYA" in msg.content.upper():
-		await bot.add_reaction(msg, "😹")
+	if msg.content != "!nya":
+		if "NYA" in msg.content.upper():
+			await bot.add_reaction(msg, "😹")
+	if random.random() < 0.0002:
+		await bot.send_file(msg.author, "media/snas2.png")
 	await bot.process_commands(msg)
 
 @bot.event
